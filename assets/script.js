@@ -2,7 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword(){
-  // Establishing variables for characters and 
+  // Establishing variables for characters and arrays
   let characterNum = window.prompt("How many characters would you like your password to have? Between 8 and 124 characters");
   let upperChoice = window.confirm("Would you like your password to contain uppercase letters?");
   let lowerChoice = window.confirm("Would you like your password to contain lowercase letters?");
@@ -14,8 +14,10 @@ function generatePassword(){
   let special = ["%", "!", "&", "*", "@"];
   let chosenValues = [];
   let password = [];
-  // Loop that generates the password based off of number of characters chosen
-  if (characterNum >= 8 && characterNum <= 12){
+
+  // Conditional statement verifies the minimum and maximum characters
+  if (characterNum >= 8 && characterNum <= 124){
+      // Loop that generates the password based off of number of characters chosen
    for(let i = 0; i < characterNum; i++) {
      if(upperChoice && lowerChoice && numberChoice && specialChoice){
       chosenValues = [...upperC, ...lowerC, ...number, ...special];
@@ -25,12 +27,21 @@ function generatePassword(){
       chosenValues = [...lowerC, ...number, ...special];
       let randomNumber = Math.floor(Math.random() * chosenValues.length);
       password.push(chosenValues[randomNumber]);
-    } else if(numberChoice && specialChoice) {
-      chosenValues = [...number, ...special];
+    } else if(upperChoice && numberChoice && specialChoice) {
+      chosenValues = [...upperC, ...number, ...special];
       let randomNumber = Math.floor(Math.random() * chosenValues.length);
       password.push(chosenValues[randomNumber]);
+    } else if(upperChoice) {
+      chosenValues = [...upperC];
+      let randomNumber = Math.floor(Math.random() * chosenValues.length);
+    } else if(lowerChoice) {
+      chosenValues = [...lowerC];
+      let randomNumber = Math.floor(Math.random() * chosenValues.length);
     } else if(specialChoice) {
       chosenValues = [...special];
+      let randomNumber = Math.floor(Math.random() * chosenValues.length);
+    } else if(numberChoice) {
+      chosenValues = [...number];
       let randomNumber = Math.floor(Math.random() * chosenValues.length);
     } else if(upperChoice && lowerChoice) {
       chosenValues = [...upperC, ...lowerC];
@@ -40,21 +51,25 @@ function generatePassword(){
       chosenValues = [...lowerC, ...number,];
       let randomNumber = Math.floor(Math.random() * chosenValues.length);
       password.push(chosenValues[randomNumber]);
-    } else if (upperChoice && lowerChoice && numberChoice && specialChoice){
-      chosenValues = [...upperC, ...lowerC, ...number, ...special];
+    } else if (upperChoice && numberChoice){
+      chosenValues = [...upperC, ...number];
       let randomNumber = Math.floor(Math.random() * chosenValues.length);
       password.push(chosenValues[randomNumber]);
     } else if (upperChoice && specialChoice){
       chosenValues = [...upperC, ...special];
       let randomNumber = Math.floor(Math.random() * chosenValues.length);
       password.push(chosenValues[randomNumber]);
-    }
+    }  else if(numberChoice && specialChoice) {
+      chosenValues = [...number, ...special];
+      let randomNumber = Math.floor(Math.random() * chosenValues.length);
+      password.push(chosenValues[randomNumber]);
+    } 
   } 
 } else {
   return "Invalid Input";
 };
-
-  return password;
+  let newPassword = password.join("");
+  return newPassword;
 }
 // Write password to the #password input
 function writePassword() {
