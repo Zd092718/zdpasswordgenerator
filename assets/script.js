@@ -31,7 +31,11 @@ function generatePassword(){
       chosenValues = [...upperC, ...number, ...special];
       let randomNumber = Math.floor(Math.random() * chosenValues.length);
       password.push(chosenValues[randomNumber]);
-    }  else if(upperChoice && lowerChoice) {
+    }  else if(upperChoice && lowerChoice && specialChoice) {
+      chosenValues = [...upperC, ...lowerC, ...special];
+      let randomNumber = Math.floor(Math.random() * chosenValues.length);
+      password.push(chosenValues[randomNumber])
+    } else if(upperChoice && lowerChoice) {
       chosenValues = [...upperC, ...lowerC];
       let randomNumber = Math.floor(Math.random() * chosenValues.length);
       password.push(chosenValues[randomNumber]);
