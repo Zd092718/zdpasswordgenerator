@@ -31,24 +31,12 @@ function generatePassword(){
       chosenValues = [...upperC, ...number, ...special];
       let randomNumber = Math.floor(Math.random() * chosenValues.length);
       password.push(chosenValues[randomNumber]);
-    } else if(upperChoice) {
-      chosenValues = [...upperC];
-      let randomNumber = Math.floor(Math.random() * chosenValues.length);
-    } else if(lowerChoice) {
-      chosenValues = [...lowerC];
-      let randomNumber = Math.floor(Math.random() * chosenValues.length);
-    } else if(specialChoice) {
-      chosenValues = [...special];
-      let randomNumber = Math.floor(Math.random() * chosenValues.length);
-    } else if(numberChoice) {
-      chosenValues = [...number];
-      let randomNumber = Math.floor(Math.random() * chosenValues.length);
-    } else if(upperChoice && lowerChoice) {
+    }  else if(upperChoice && lowerChoice) {
       chosenValues = [...upperC, ...lowerC];
       let randomNumber = Math.floor(Math.random() * chosenValues.length);
       password.push(chosenValues[randomNumber]);
     } else if(lowerChoice && numberChoice) {
-      chosenValues = [...lowerC, ...number,];
+      chosenValues = [...lowerC, ...number];
       let randomNumber = Math.floor(Math.random() * chosenValues.length);
       password.push(chosenValues[randomNumber]);
     } else if (upperChoice && numberChoice){
@@ -63,11 +51,30 @@ function generatePassword(){
       chosenValues = [...number, ...special];
       let randomNumber = Math.floor(Math.random() * chosenValues.length);
       password.push(chosenValues[randomNumber]);
-    } 
+    } else if(upperChoice) {
+      chosenValues = [...upperC];
+      let randomNumber = Math.floor(Math.random() * chosenValues.length);
+      password.push(chosenValues[randomNumber]);
+    } else if(lowerChoice) {
+      chosenValues = [...lowerC];
+      let randomNumber = Math.floor(Math.random() * chosenValues.length);
+      password.push(chosenValues[randomNumber]);
+    } else if(specialChoice) {
+      chosenValues = [...special];
+      let randomNumber = Math.floor(Math.random() * chosenValues.length);
+      password.push(chosenValues[randomNumber]);
+    } else if(numberChoice) {
+      chosenValues = [...number];
+      let randomNumber = Math.floor(Math.random() * chosenValues.length);
+      password.push(chosenValues[randomNumber]);
+    }
   } 
 } else {
+
   return "Invalid Input";
+
 };
+  //Joins password into one string
   let newPassword = password.join("");
   return newPassword;
 }
