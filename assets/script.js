@@ -55,6 +55,10 @@ function generatePassword(){
       chosenValues = [...number, ...special];
       let randomNumber = Math.floor(Math.random() * chosenValues.length);
       password.push(chosenValues[randomNumber]);
+    } else if(lowerChoice && specialChoice) {
+      chosenValues = [...lowerC, ...special];
+      let randomNumber = Math.floor(Math.random() * chosenValues.length);
+      password.push(chosenValues[randomNumber]);
     } else if(upperChoice) {
       chosenValues = [...upperC];
       let randomNumber = Math.floor(Math.random() * chosenValues.length);
