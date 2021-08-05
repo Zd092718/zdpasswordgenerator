@@ -8,10 +8,10 @@ function generatePassword(){
   let lowerChoice = window.confirm("Would you like your password to contain lowercase letters?");
   let numberChoice = window.confirm("Would you like your password to contain numbers?");
   let specialChoice = window.confirm("Would you like your password to contain special characters?");
-  let upperC = ["A", "B", "C", "D", "E"];
-  let lowerC = ["a", "b", "c", "d", "e"];
+  let upperC = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+  let lowerC = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
   let number = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  let special = ["%", "!", "&", "*", "@"];
+  let special = ["%", "!", "&", "*", "@", "^", "*", "<", ">", "~"];
   let chosenValues = [];
   let password = [];
 
